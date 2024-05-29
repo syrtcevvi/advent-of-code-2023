@@ -3,6 +3,7 @@ use std::{collections::HashMap, fs::read_to_string, ops::RangeInclusive};
 use iter_tools::Itertools;
 
 const INPUT_FILE: &str = "input.txt";
+const GEAR_SYMBOL: char = '*';
 
 fn main() {
     let mut numbers: Vec<((bool, u64), (usize, RangeInclusive<usize>))> = Vec::with_capacity(256);
@@ -36,20 +37,31 @@ fn main() {
             }
         });
 
-    let mut part_numbers_sum = 0;
+    let mut gear_ratios_sum = 0;
 
     for ((i, j), c) in symbols {
-        for (line, column) in (i - 1..=i + 1).cartesian_product(j - 1..=j + 1) {
+        let mut adjacent_numbers_counter = 0;
+        let mut possible_gear_ratio = 1;
+        for (line, column) in (i - 1..=i + 1)
+            .cartesian_product(j - 1..=j + 1)
+            .filter(|(m, n)| *m != i || *n != j)
+        {
             if let Some(((is_used, number), _)) = numbers
                 .iter_mut()
                 .filter(|((is_used, _), _)| !is_used)
                 .find(|(_, (i, js))| line == *i && js.contains(&column))
             {
                 *is_used = true;
-                part_numbers_sum += *number;
+                if c == GEAR_SYMBOL {
+                    adjacent_numbers_counter += 1;
+                    possible_gear_ratio *= *number;
+                }
             }
+        }
+        if adjacent_numbers_counter == 2 {
+            gear_ratios_sum += possible_gear_ratio;
         }
     }
 
-    println!("{part_numbers_sum}");
+    println!("{gear_ratios_sum}");
 }
