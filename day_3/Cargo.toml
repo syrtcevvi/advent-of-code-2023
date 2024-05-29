@@ -3,5 +3,13 @@ name = "day_3"
 version = "0.1.0"
 edition = "2021"
 
+[[bin]]
+name = "part_1"
+path = "src/part_1.rs"
+
+[[bin]]
+name = "part_2"
+path = "src/part_2.rs"
+
 [dependencies]
 iter_tools = "0.16.0"
