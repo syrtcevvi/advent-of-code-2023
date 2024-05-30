@@ -1,9 +1,9 @@
 use std::{
     cmp::min,
     collections::HashMap,
-    fs::{self, File},
-    io::{BufRead, Cursor, Read},
-    ops::{Range, RangeInclusive},
+    fs::{self},
+    io::BufRead,
+    ops::Range,
 };
 
 const INPUT_FILE: &str = "input.txt";
@@ -34,7 +34,7 @@ fn main() {
         .for_each(|block| {
             let (src_key, dst_key) = block
                 .lines()
-                .nth(0)
+                .next()
                 // Get rid of " map:" suffix
                 .map(|raw_header| &raw_header[..=raw_header.len() - MAP_SUFFIX.len()])
                 // Collect "src_key" and "dst_key"
