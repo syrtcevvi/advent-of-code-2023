@@ -2,12 +2,11 @@ use std::fs::read_to_string;
 
 use nom::{
     branch::alt,
-    bytes::complete::{tag, take_till, take_until, take_while},
-    character::complete::{alpha0, anychar, char, digit0, digit1},
-    combinator::{map_res, not, value},
+    bytes::complete::tag,
+    character::complete::{anychar, char},
+    combinator::value,
     error::{Error, ErrorKind},
-    multi::{many0, many_till},
-    sequence::tuple,
+    multi::many_till,
     IResult,
 };
 

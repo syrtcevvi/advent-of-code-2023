@@ -33,7 +33,7 @@ fn main() {
                         continue 'outer;
                     }
                 }
-                if let Some(digit) = tail.chars().next().map(|c| c.to_digit(10)).flatten() {
+                if let Some(digit) = tail.chars().next().and_then(|c| c.to_digit(10)) {
                     digits.insert(0, digit as u8);
                 }
                 cursor += 1;
