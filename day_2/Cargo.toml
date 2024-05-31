@@ -11,4 +11,9 @@ path = "src/part_1.rs"
 name = "part_2"
 path = "src/part_2.rs"
 
+[[bin]]
+name = "part_2_nom"
+path = "src/part_2_nom.rs"
+
 [dependencies]
+nom = "7.1.3"
