@@ -22,7 +22,7 @@ fn main() {
                 for subset in subsets {
                     let cube_infos = subset
                         .split(", ")
-                        .map(|info| info.split_once(" ").unwrap())
+                        .map(|info| info.split_once(' ').unwrap())
                         .map(|(quantity, color)| (quantity.parse::<u64>().unwrap(), color));
                     for (quantity, color) in cube_infos {
                         // Limit is exceeded -> game is not possible

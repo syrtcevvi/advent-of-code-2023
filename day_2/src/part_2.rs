@@ -16,7 +16,7 @@ fn main() {
             for subset in subsets {
                 let cube_infos = subset
                     .split(", ")
-                    .map(|info| info.split_once(" ").unwrap())
+                    .map(|info| info.split_once(' ').unwrap())
                     .map(|(quantity, color)| (quantity.parse::<u64>().unwrap(), color));
                 for (quantity, color) in cube_infos {
                     let max_cube_quantity = max_cubes_quantity.entry(color).or_default();
@@ -28,7 +28,7 @@ fn main() {
             }
             let power = max_cubes_quantity
                 .values()
-                .fold(1, |acc, quantity| acc * quantity);
+                .product::<u64>();
 
             power_sum + power
         });
