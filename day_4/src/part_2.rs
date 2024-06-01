@@ -1,9 +1,4 @@
-use std::{
-    cell::Cell,
-    cmp::min,
-    collections::{HashMap, HashSet},
-    fs::read_to_string,
-};
+use std::{cell::Cell, cmp::min, collections::HashSet, fs::read_to_string};
 
 use nom::{
     bytes::complete::tag,

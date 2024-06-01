@@ -17,12 +17,12 @@ fn main() {
                     (
                         lhs.trim()
                             .split(' ')
-                            .filter(|n| *n != "")
+                            .filter(|n| !n.is_empty())
                             .map(|n| n.parse::<u64>().unwrap())
                             .collect::<HashSet<u64>>(),
                         rhs.trim()
                             .split(' ')
-                            .filter(|n| *n != "")
+                            .filter(|n| !n.is_empty())
                             .map(|n| n.parse::<u64>().unwrap())
                             .collect::<HashSet<u64>>(),
                     )
