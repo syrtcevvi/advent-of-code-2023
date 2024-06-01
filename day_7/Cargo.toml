@@ -7,5 +7,9 @@ edition = "2021"
 name = "part_1"
 path = "src/part_1.rs"
 
+[[bin]]
+name = "part_2"
+path = "src/part_2.rs"
+
 [dependencies]
 nom = "7.1.3"
