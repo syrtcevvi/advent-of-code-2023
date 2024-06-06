@@ -1,5 +1,5 @@
 # Advent of code 2023. Solved in Rust
-![Static Badge](https://img.shields.io/badge/days_solved-7-purple)
+![Static Badge](https://img.shields.io/badge/days_solved-9-purple)
 
 My [Advent of code 2023](https://adventofcode.com/2023/about) solutions in the Rust programming language.
 
